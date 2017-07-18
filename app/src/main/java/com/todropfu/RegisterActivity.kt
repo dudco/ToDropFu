@@ -36,6 +36,9 @@ class RegisterActivity : AppCompatActivity(),AnkoLogger {
                 Util.setPref(this@RegisterActivity, "name", json.get("name").toString())
                 Util.setPref(this@RegisterActivity, "init", true)
             })
+            Util.network.connectBucket(Util.getPref(this@RegisterActivity, "_id", "")!!, {
+                _, _, result -> Util.setPref(this@RegisterActivity, "bucket_id", result.get().obj().get("_id").toString())
+            })
             startActivity<AfterRegisterActivity>()
             finish()
         }

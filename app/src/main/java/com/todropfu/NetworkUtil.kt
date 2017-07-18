@@ -7,6 +7,7 @@ import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.core.Request
 import com.github.kittinunf.fuel.core.Response
 import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.result.Result
 
 /**
@@ -24,4 +25,11 @@ class NetworkUtil {
             request, response, result -> callback(request, response, result)
         }
     }
+
+    fun connectBucket(user_id: String, callback:  (request: Request, response: Response, result: Result<Json, FuelError>)->Unit ){
+        "/bucket/add".httpPost(listOf("user_id" to user_id)).responseJson { request, response, result ->
+            callback(request, response, result)
+        }
+    }
+
 }
