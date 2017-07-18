@@ -1,25 +1,34 @@
 package com.todropfu
 
+import android.content.Context
 import android.databinding.ObservableArrayList
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
+import android.util.DisplayMetrics
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import com.github.nitrico.lastadapter.LastAdapter
 import com.github.nitrico.lastadapter.Type
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.todropfu.databinding.ItemHomeRecyclerBinding
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
+import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import kotlin.properties.Delegates
 
@@ -72,7 +81,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, AnkoLogger {
             val log = mGpsInfo.longitude
 
             updateCamera(lat, log)
-            addMarker("현재위치", lat, log, false)
+            addMarker("내 위치", lat, log, false)
         }
     }
 
@@ -85,7 +94,40 @@ class HomeFragment : Fragment(), OnMapReadyCallback, AnkoLogger {
     }
 
     private fun addMarker(title: String, lat: Double, log: Double, isMarkerRemove: Boolean) {
-        map.addMarker(MarkerOptions().title(title).position(LatLng(lat, log)))
+        val wparam = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
+        val mparam = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
+        val view = FrameLayout(context)
+        val textView = TextView(context)
+        wparam.topMargin = 12
+        textView.text = title
+        textView.layoutParams = wparam
+        textView.gravity = Gravity.CENTER_HORIZONTAL
+        textView.textSize = 12.0f
+        textView.textColor = ContextCompat.getColor(context, R.color.md_white_1000)
+        val imageView = ImageView(context)
+        imageView.image = ContextCompat.getDrawable(context, R.drawable.ic_home_marker)
+        imageView.layoutParams = mparam
+
+        view.addView(imageView)
+        view.addView(textView)
+        map.addMarker(MarkerOptions().position(LatLng(lat, log)).icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(context, view))))
+
+    }
+
+    private fun createDrawableFromView(context: Context, view: View): Bitmap {
+
+        val displayMetrics = DisplayMetrics()
+        context.windowManager.defaultDisplay.getMetrics(displayMetrics)
+        view.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        view.measure(displayMetrics.widthPixels, displayMetrics.heightPixels)
+        view.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels)
+        view.buildDrawingCache()
+        val bitmap = Bitmap.createBitmap(view.measuredWidth, view.measuredHeight, Bitmap.Config.ARGB_8888)
+
+        val canvas = Canvas(bitmap)
+        view.draw(canvas)
+
+        return bitmap
     }
 
     //    private fun addMarker(lat: Double, log: Double) {
