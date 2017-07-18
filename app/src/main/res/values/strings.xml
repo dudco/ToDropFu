@@ -1,0 +1,20 @@
+<resources>
+  <string name="app_name">ToDropFu</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="my_info">내 정보</string>
+  <string name="user_name">사용자 이름</string>
+  <string name="home_address">집 주소</string>
+  <string name="change_adress">주소변경</string>
+  <string name="add_card">카드 등록하기</string>
+  <string name="card_add">카드등록</string>
+  <string name="won">원</string>
+  <string name="price">금액</string>
+  <string name="add_on_card">장바구니에 담기</string>
+  <string name="view_detail">자세히 보기</string>
+  <string name="view_in_map">지도 보기</string>
+  <string name="card_behind_num">****</string>
+  <string name="visa">VISA</string>
+  <string name="payment">결제하기</string>
+</resources>

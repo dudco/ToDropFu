@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  <android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.todropfu.AfterRegisterActivity">
+    <ImageView
+      android:id="@+id/afterBg"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      android:scaleType="fitXY"/>
+    <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      android:orientation="vertical"
+      android:weightSum="1">
+      <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_tuto_logo1"
+        android:layout_weight="0.6"
+        android:scaleType="fitXY"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="30dp"/>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.09"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:paddingRight="20dp"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp">
+
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="0dp"
+          android:src="@drawable/ic_tuto_logo2"
+          android:layout_weight="0.98"
+          android:layout_gravity="start"
+          android:paddingBottom="10dp"
+          android:scaleType="fitXY"
+          android:paddingRight="150dp"/>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="0.02"
+          android:background="@color/colorPrimary"/>
+
+      </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.21"
+        android:gravity="center">
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To Drop Fu는 두부아저씨, 생선아저씨, 순대아저씨,\n타코야키 문어빡빡이 아저씨 등 이동식 트럭 판매\n업자들과 사람들을 연결해주는 서비스 입니다!"
+            android:textSize="14sp"
+            android:textColor="@color/md_black_1000"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            />
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:gravity="center"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+          android:id="@+id/btnAfterRegBack"
+          android:layout_width="130dp"
+          android:layout_height="40dp"
+          android:background="@drawable/btn_bg_login"
+          style="@style/Widget.AppCompat.Button"
+          android:orientation="horizontal"
+          android:paddingStart="20dp"
+          android:paddingRight="20dp"
+          android:paddingEnd="20dp"
+          android:paddingLeft="20dp">
+
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_tuto_back"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="-10dp"/>
+
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="뒤로 가기"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"/>
+        </LinearLayout>
+
+        <android.support.v4.widget.Space
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1" />
+
+
+        <LinearLayout
+          android:id="@+id/btnAfterRegNext"
+          android:layout_width="130dp"
+          android:layout_height="40dp"
+          android:background="@drawable/btn_bg_regsuccess"
+          style="@style/Widget.AppCompat.Button"
+          android:orientation="horizontal"
+          android:paddingStart="20dp"
+          android:paddingRight="20dp"
+          android:paddingEnd="20dp"
+          android:paddingLeft="20dp">
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="가입 완료"
+            android:gravity="center"
+            android:textColor="@color/md_white_1000"/>
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_tuto_next"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginRight="-10dp"/>
+        </LinearLayout>
+
+      </LinearLayout>
+
+    </LinearLayout>
+  </android.support.constraint.ConstraintLayout>
+</layout>

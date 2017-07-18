@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <variable
+      name="rdata"
+      type="com.todropfu.HomeFragment.CardData"/>
+  </data>
+  <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="15dp"
+    android:paddingEnd="20dp"
+    android:paddingLeft="20dp"
+    android:paddingStart="20dp">
+
+    <android.support.v7.widget.CardView
+      android:layout_width="match_parent"
+      android:layout_height="81dp"
+      app:cardCornerRadius="2dp"
+      android:layout_marginBottom="10dp">
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical">
+
+        <!-- 60 = px * 72 / 420 -->
+
+        <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          android:gravity="center_vertical">
+          <TextView
+            android:id="@+id/itemHomeCardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ rdata.title }"
+            tools:text="불기둥네 불소세지"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/md_black_1000"
+            android:layout_marginBottom="10dp"
+            android:font='@{ "nbg_bold" }'/>
+
+          <TextView
+            android:id="@+id/itemHomeCardContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ rdata.content }"
+            tools:text="띠용? 불기둥네 불떡볶이 이거 완죤 이름부터\n신선한 걸? 먹으러 가자!"
+            android:textSize="9.00sp"
+            android:font='@{ "nbg_normal" }'/>
+        </LinearLayout>
+        <android.support.v4.widget.Space
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"/>
+        <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="-5dp">
+            <ImageView
+              android:layout_width="23dp"
+              android:layout_height="23dp"
+              android:src="@drawable/ic_meter"
+              android:scaleType="fitXY"
+              android:layout_marginRight="-3dp"/>
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="@{ rdata.distance }"
+              android:layout_gravity="center_vertical"
+              tools:text="500 M"
+              android:textSize="22dp"
+              android:textColor="@color/md_black_1000"
+              android:font='@{ "nbg_ulight" }'/>
+          </LinearLayout>
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="약 10분 거리에서 판매중입니다"
+            android:textSize="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"/>
+
+          <Button
+            android:layout_width="match_parent"
+            android:layout_height="20.00dp"
+            android:background="@drawable/btn_bg_call"
+            android:text="호출하기"
+            android:textColor="@color/md_white_1000"
+            android:textSize="8dp"/>
+        </LinearLayout>
+
+      </LinearLayout>
+    </android.support.v7.widget.CardView>
+  </LinearLayout>
+</layout>

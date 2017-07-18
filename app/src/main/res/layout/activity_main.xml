@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+  <data>
+    <variable
+      name="main"
+      type="com.todropfu.MainActivity.Tabs"/>
+  </data>
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.todropfu.MainActivity"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+      android:id="@+id/mainToolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:background="@color/md_white_1000"
+      app:contentInsetRight="0dp"
+      app:contentInsetStart="0dp"
+      android:contentInsetStart="0dp"
+      android:contentInsetLeft="0dp"
+      />
+
+    <android.support.v4.view.ViewPager
+      android:id="@+id/pager"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1">
+
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:background="@drawable/bg_shadow"/>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="3dp"
+      android:background="@color/md_white_1000"
+      android:weightSum="1">
+      <android.support.v4.widget.Space
+        android:id="@+id/main_tab_indi_margin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.075"/>
+      <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_weight="0.10"/>
+    </LinearLayout>
+    <LinearLayout
+      android:id="@+id/bttomTab"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:orientation="horizontal"
+      android:gravity="center_vertical"
+      android:background="@color/md_white_1000">
+
+      <ImageView
+        android:id="@+id/tabHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@{ main.isHomeSelected ? @drawable/ic_home_selected : @drawable/ic_home_normal }"
+        android:layout_weight="0.25"/>
+
+      <ImageView
+        android:id="@+id/tabMarket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@{ main.isMarketSelected ? @drawable/ic_market_selected : @drawable/ic_market_normal }"
+        android:layout_weight="0.25"/>
+
+      <ImageView
+        android:id="@+id/tabBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@{ main.isBillSelected ? @drawable/ic_bill_selected : @drawable/ic_bill_normal }"
+        android:layout_weight="0.25"/>
+
+      <ImageView
+        android:id="@+id/tabProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@{ main.isProfileSelected ? @drawable/ic_profile_selected : @drawable/ic_profile_normal}"
+        android:layout_weight="0.25"/>
+
+    </LinearLayout>
+  </LinearLayout>
+</layout>
