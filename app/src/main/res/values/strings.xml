@@ -17,4 +17,5 @@
   <string name="card_behind_num">****</string>
   <string name="visa">VISA</string>
   <string name="payment">결제하기</string>
+  <string name="fb_login_protocol_scheme">fb154408675125421</string>
 </resources>

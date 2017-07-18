@@ -13,7 +13,7 @@ import kotlin.properties.Delegates
 
 
 class ProfileFragment : Fragment() {
-    data class UserData(val name: String, val Home: String)
+    data class UserData(val name: String?, val Home: String?)
 
     var binding: FragmentProfileBinding by Delegates.notNull<FragmentProfileBinding>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,9 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate<FragmentProfileBinding>(inflater, R.layout.fragment_profile, container, false)
-        binding.setVariable(BR.udata, UserData("두부넘버원", "서울특별시 용산구 청파동3가 원효로97길 33-4"))
+        val name = Util.getPref(context, "name", "")
+        val add = Util.getPref(context, "address", "")
+        binding.setVariable(BR.udata, UserData(name, add))
 
         binding.btnAddCard.onClick {
             startActivity<AddCardActivity>()

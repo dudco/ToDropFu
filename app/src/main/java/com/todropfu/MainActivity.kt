@@ -12,15 +12,13 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
-import android.util.TypedValue
 import android.view.LayoutInflater
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toolbar
 import com.todropfu.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_toolbar.view.*
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.debug
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.startActivity
 import kotlin.properties.Delegates
@@ -51,6 +49,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        debug { Util.getPref(this@MainActivity, "init", false) }
 
         if (VERSION.SDK_INT >= VERSION_CODES.M) {
             if( checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED ||

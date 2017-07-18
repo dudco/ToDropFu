@@ -24,6 +24,7 @@
       android:gravity="center"
       android:orientation="vertical">
       <android.support.design.widget.TextInputLayout
+        android:visibility="gone"
         android:id="@+id/reg_textInputId"
         style="@style/AppTheme.Opp"
         android:layout_width="match_parent"
@@ -39,6 +40,7 @@
       </android.support.design.widget.TextInputLayout>
 
       <android.support.design.widget.TextInputLayout
+        android:visibility="gone"
         android:id="@+id/reg_textInputPass"
         style="@style/AppTheme.Opp"
         android:layout_width="match_parent"
@@ -55,6 +57,7 @@
       </android.support.design.widget.TextInputLayout>
 
       <android.support.design.widget.TextInputLayout
+        android:visibility="gone"
         android:id="@+id/reg_textInputPassR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,6 +72,7 @@
       </android.support.design.widget.TextInputLayout>
 
       <android.support.design.widget.TextInputLayout
+        android:visibility="gone"
         android:id="@+id/reg_textInputEmail"
         style="@style/AppTheme.Opp"
         android:layout_width="match_parent"
@@ -83,21 +87,20 @@
           android:textSize="14sp" />
       </android.support.design.widget.TextInputLayout>
 
-      <TextView
+      <android.support.design.widget.TextInputLayout
+        android:id="@+id/reg_textInputAdree"
+        style="@style/AppTheme.Opp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="3dp"
-        android:text="집주소"
-        android:textColor="@color/md_white_1000"
-        android:textSize="14sp" />
-      <Button
-        android:id="@+id/btnViewInMap"
-        android:layout_width="130dp"
-        android:layout_height="40dp"
-        android:layout_gravity="left"
-        android:background="@drawable/btn_bg_login"
-        android:text="지도에서 보기" />
+        android:layout_marginBottom="10dp">
+        <android.support.design.widget.TextInputEditText
+          android:id="@+id/reg_editAdrress"
+          style="@style/AppTheme.Opp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="집주소"
+          android:textSize="14sp" />
+      </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout

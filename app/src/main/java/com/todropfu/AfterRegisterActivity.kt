@@ -18,10 +18,11 @@ class AfterRegisterActivity : AppCompatActivity() {
         }
         btnAfterRegNext.onClick {
             startActivity<MainActivity>()
+            finish()
         }
     }
 
     fun setBg(sampleSize: Int){
-        afterBg.setImageBitmap(resourceInSmapleSizeImg(resources, R.drawable.bg_tuto, sampleSize))
+        afterBg.setImageBitmap(Util.resourceInSmapleSizeImg(resources, R.drawable.bg_tuto, sampleSize))
     }
 }
